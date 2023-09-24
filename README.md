@@ -1,4 +1,15 @@
-# Getting Started
+# Group 0 Project
+
+#### Using git and branches
+
+Work in individual branches;
+1. Create a branch; `git checkout -b feat/my-branch-name`
+2. Work on your code and update
+3. Push to github, and make Pull Request.
+4. Wait for another team member to review/approve
+5. Merge via github!
+
+
 
 This repository functions as the basis of the quiz project in the [Browsers module](https://github.com/HackYourFuture/Browsers). Before the first group meeting, have a look through this code and try to understand how it works and how it is organised. We will explain the idea behind the structure below as well as the Backlog (which will identify what is needed to be implemented).
 
