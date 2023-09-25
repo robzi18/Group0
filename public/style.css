@@ -1,3 +1,32 @@
+:root {
+  --my-backgroundcolor: hwb(200 75% 9%); /* Red */
+  --my-buttonColor:#2C7FAB
+}
+
+
+*{
+ margin: 0;
+ padding: 0;
+ font-family: 'Comfortaa', cursive;
+ font-family: 'Croissant One', cursive;
+ font-family: 'Poppins', sans-serif;
+
+}
+body{
+ 
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(213, 222, 244), rgb(210, 229, 234)),
+      url(../assets/back.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+  
+}
+
+/* Use the variable where needed */
+
 .centered {
   position: fixed;
   top: 50%;
@@ -14,4 +43,85 @@
 
 ul {
   list-style: none;
+}
+.question-box{
+
+  border: 2px solid;
+  border-color: var(--my-buttonColor);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+ 
+
+}
+button {
+  background-color: var(--my-buttonColor);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color:white;
+  border:  1px solid var(--my-buttonColor);
+  color: var(--my-buttonColor);
+}
+
+/* ==============
+ */
+ .row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1%;
+ }
+ .alternative {
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1%;
+}
+
+
+.alternative:hover {
+  background-color: var(--my-buttonColor);
+  color: white;
+}
+
+/* Style the letter label */
+p {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.answer-box{
+  /* ONLY DISPLAYED WHEN QUIZ TAKER CLICKS ON OF THE ALTERNATIVES */
+  display: none;
+
+}
+.correct-answer{
+/* ONLY DISPLAYED WHEN QUIZ TAKER CLICKS ON OF THE CORRECT ALTERNATIVES AND SHOULD DISAPPEAR AFTER 2SECOND*/
+ position: fixed;
+  top: 50%;
+  right: -20%;
+
+}
+.wrong-answer{
+  /* ONLY DISPLAYED WHEN QUIZ TAKER CLICKS ON OF THE WRONG ALTERNATIVES AND SHOULD DISAPPEAR AFTER 2SECOND*/
+  position: fixed;
+  top: 50%;
+  left: -20%;
+
 }
