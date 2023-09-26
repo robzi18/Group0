@@ -12,11 +12,13 @@ let userScore = 0;
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
+  
 
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const questionElement = createQuestionElement(currentQuestion.text);
+  // const questionElement = createQuestionElement(currentQuestion.text);
+  const questionElement = createQuestionElement(currentQuestion);
 
   userInterface.appendChild(questionElement);
 
@@ -35,6 +37,7 @@ export const initQuestionPage = () => {
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
 };
+
 //updating the score depends on tje user answers
 const updateScore = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
