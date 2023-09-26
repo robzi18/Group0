@@ -17,4 +17,3 @@ export const initWelcomePage = () => {
 const startQuiz = () => {
   initQuestionPage();
 };
-console.log("boo")
