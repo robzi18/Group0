@@ -6,12 +6,13 @@
 export const createAnswerElement = (key, answerText) => {
   const element = document.createElement('li');
   element.innerHTML = String.raw`
-  <div class="question-box">
-
-  <div class="alternative">
+  <div class="answer-box">
+  <div class="answer-option">
+  <p>
     ${key}: ${answerText};
-
+  </p>
   </div>
+
   </div>
   `;
   return element;
