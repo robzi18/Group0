@@ -39,8 +39,9 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', () => {
     currentQuestion.selected = key; // Update the selected answer
     updateScore(); // Update the score
-    const scoreElement = createScoreElement(userScore);
-  userInterface.appendChild(scoreElement);
+
+    
+
   });
     answersListElement.appendChild(answerElement);
   }
@@ -58,6 +59,8 @@ const updateScore = () => {
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
+const scoreElement = document.getElementById('score');
+    scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 
 }
 
