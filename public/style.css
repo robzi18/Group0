@@ -98,8 +98,20 @@ h2 {
 
 .answer-option p {
   margin: 0;
+  /* border: 2px solid rgb(0, 94, 255); */
 }
 
 #next-question-button {
   margin-top: 10px;
 }
+/* ====
+ */
+ /* #foo{
+  border: 2px solid red;
+  cursor: pointer;
+ }
+ .foo2{
+  border: 2px solid red;
+  width: 100px;
+  height: 100px;
+ }  */

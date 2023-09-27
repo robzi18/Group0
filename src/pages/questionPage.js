@@ -27,28 +27,44 @@ export const initQuestionPage = () => {
   userInterface.appendChild(scoreElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-
+let coA = ""
+let seA = ""
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    const answerElement = createAnswerElement(key, answerText);
+  
+    const answerElement = createAnswerElement(key, answerText,currentQuestion.correct);
+  answerElement.addEventListener("click",function(){
+   alert( key)
+   seA = key
+   return key
+
+  })
+
     answersListElement.appendChild(answerElement);
+    // updateScore(key,currentQuestion.correct)
   }
 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+    return seA
 };
 
 //updating the score depends on tje user answers
 const updateScore = () => {
+  const boo = initQuestionPage()
+  console.log("returned" ,boo)
+  
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const correctAnswer = currentQuestion.correct;
+  console.log("correctAns",correctAnswer)
   const selectedAnswer = currentQuestion.selected;
+  console.log(selectedAnswer)
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
 
 }
-
 
 
 const nextQuestion = () => {

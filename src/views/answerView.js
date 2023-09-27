@@ -7,10 +7,10 @@ export const createAnswerElement = (key, answerText) => {
   const element = document.createElement('li');
   element.innerHTML = String.raw`
   <div class="answer-box">
-  <div class="answer-option">
+  <div class="answer-option" >
   <p>
     ${key}: ${answerText};
-  </p>
+  </p> 
   </div>
 
   </div>
