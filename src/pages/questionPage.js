@@ -27,18 +27,17 @@ export const initQuestionPage = () => {
   userInterface.appendChild(scoreElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-let coA = ""
-let seA = ""
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-  
-    const answerElement = createAnswerElement(key, answerText,currentQuestion.correct);
-  answerElement.addEventListener("click",function(){
-   alert( key)
-   seA = key
-   return key
+    const answerElement = createAnswerElement(key, answerText);
 
-  })
+     // Add a click event listener to each answer element
+    answerElement.addEventListener('click', () => {
+    currentQuestion.selected = key; // Update the selected answer
+    updateScore(); // Update the score
 
+    
+
+  });
     answersListElement.appendChild(answerElement);
     // updateScore(key,currentQuestion.correct)
   }
@@ -63,12 +62,13 @@ const updateScore = () => {
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
+    const scoreElement = document.getElementById('score');
+    scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 
 }
 
 
 const nextQuestion = () => {
-  updateScore();
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
