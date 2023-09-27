@@ -28,8 +28,20 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
+
+
+
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
+
+     // Add a click event listener to each answer element
+    answerElement.addEventListener('click', () => {
+    currentQuestion.selected = key; // Update the selected answer
+    updateScore(); // Update the score
+    const scoreElement = createScoreElement(userScore);
+  userInterface.appendChild(scoreElement);
+  });
     answersListElement.appendChild(answerElement);
   }
 
@@ -52,7 +64,6 @@ const updateScore = () => {
 
 
 const nextQuestion = () => {
-  updateScore();
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
