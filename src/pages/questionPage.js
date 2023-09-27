@@ -59,7 +59,7 @@ const updateScore = () => {
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
-const scoreElement = document.getElementById('score');
+    const scoreElement = document.getElementById('score');
     scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 
 }

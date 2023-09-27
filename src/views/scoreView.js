@@ -5,6 +5,10 @@
 export const createScoreElement = (score) =>{
     const element = document.createElement('div');
     element.classList.add('score-element');
+    const img = document.createElement('img');
+    img.src = './assets/coin.gif'
+    img.alt = 'coin spin'
+    element.appendChild(img);
     const h3 = document.createElement('h3');
     h3.innerHTML = "Your Score :";
     element.appendChild(h3);
@@ -12,6 +16,6 @@ export const createScoreElement = (score) =>{
     p.innerHTML = `${score} point${score === 1 ? '' : 's'} `;
     p.id = 'score';
     element.appendChild(p);
-    
+
     return element;
 }
