@@ -39,7 +39,7 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', () => {
     currentQuestion.selected = key; // Update the selected answer
     updateScore(); // Update the score
-
+    getCorrectAnswer();
     
 
   });
@@ -63,7 +63,21 @@ const updateScore = () => {
     scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 
 }
-
+//A user can see what the correct answer is after they selected their answer
+  const getCorrectAnswer = ()=> {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  const correctAnswer = currentQuestion.correct;
+  const selectedAnswer = currentQuestion.selected;
+  const selectedAnswerBox = document.getElementById(`answer-box-${selectedAnswer}`);
+  const CorrectAnswerBox = document.getElementById(`answer-box-${correctAnswer}`);
+  if( correctAnswer === selectedAnswer){
+    selectedAnswerBox.style.backgroundColor = '#9ACD32';
+  }
+  else {
+    selectedAnswerBox.style.backgroundColor = '	#DC143C';
+    CorrectAnswerBox.style.background = '#9ACD32';
+  }
+  }
 
 
 const nextQuestion = () => {
