@@ -5,9 +5,17 @@
 export const createScoreElement = (score) =>{
     const element = document.createElement('div');
     element.classList.add('score-element');
-    element.innerHTML = `
-    <h3> Your Score </h3>
-    <p> ${score} point${score === 1 ? '' : 's'} </p>
-    `;
+    const img = document.createElement('img');
+    img.src = './assets/coin.gif'
+    img.alt = 'coin spin'
+    element.appendChild(img);
+    const h3 = document.createElement('h3');
+    h3.innerHTML = "Your Score :";
+    element.appendChild(h3);
+    const p = document.createElement('p');
+    p.innerHTML = `${score} point${score === 1 ? '' : 's'} `;
+    p.id = 'score';
+    element.appendChild(p);
+
     return element;
 }

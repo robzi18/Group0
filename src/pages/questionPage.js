@@ -28,8 +28,21 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
+
+
+
+
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
+
+     // Add a click event listener to each answer element
+    answerElement.addEventListener('click', () => {
+    currentQuestion.selected = key; // Update the selected answer
+    updateScore(); // Update the score
+
+    
+
+  });
     answersListElement.appendChild(answerElement);
   }
 
@@ -46,13 +59,14 @@ const updateScore = () => {
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
+    const scoreElement = document.getElementById('score');
+    scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 
 }
 
 
 
 const nextQuestion = () => {
-  updateScore();
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
