@@ -1,6 +1,7 @@
 import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
+  SKIP_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
@@ -49,6 +50,10 @@ export const initQuestionPage = () => {
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+
+  document
+    .getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', skipQuestion);
 };
 
 //updating the score depends on tje user answers
@@ -78,7 +83,15 @@ const updateScore = () => {
     CorrectAnswerBox.style.background = '#9ACD32';
   }
   }
-
+  
+  //skip current question and shows next question after 2 seconds
+  const skipQuestion = () =>{
+    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+    const correctAnswer = currentQuestion.correct;
+    const CorrectAnswerBox = document.getElementById(`answer-box-${correctAnswer}`);
+    CorrectAnswerBox.style.background = '#9ACD32';
+    setTimeout(nextQuestion,2000);
+  }
 
 const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
