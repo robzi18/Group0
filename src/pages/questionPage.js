@@ -26,6 +26,15 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
   const questionElement = createQuestionElement(currentQuestion);
+  
+  // HERE 
+    questionElement.classList.add("animated-box")
+    questionElement.style.opacity = "0"; // FADE OUT THE ALL THE BOX
+    setTimeout(() => {
+      questionElement.style.opacity = "1"; // FADE IN THE ALL THE BOX
+      questionElement.style.transform= "translateY(0%)";
+
+    }, 800);
 
   userInterface.appendChild(questionElement);
 
@@ -128,6 +137,8 @@ const disableAnswerOptions = () => {
   
 // Go to next question
 const nextQuestion = () => {
+  // its here i have to right the code
+
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   initQuestionPage();
 };
