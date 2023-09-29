@@ -42,7 +42,7 @@ export const initQuestionPage = () => {
       questionElement.style.opacity = "1"; // FADE IN THE ALL THE BOX
       questionElement.style.transform= "translateY(0%)";
 
-    }, 150);
+    }, 120);
 
 
   // Create scoreElement with the initial score 0 and append it
@@ -130,7 +130,7 @@ const skipQuestion = () =>{
   const correctAnswer = currentQuestion.correct;
   const CorrectAnswerBox = document.getElementById(`answer-box-${correctAnswer}`);
   CorrectAnswerBox.style.background = '#9ACD32';
-  setTimeout(nextQuestion,2000);
+  setTimeout(nextQuestion,1000);
 }
 
 // Disable answer options
@@ -162,7 +162,7 @@ const nextQuestion = () => {
 
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   // CHECK WHICH QUESTION NUMBER IS
-  if(quizData.currentQuestionIndex !== 9){
+  if(quizData.currentQuestionIndex !== 10){
   
   initQuestionPage();
 }else{

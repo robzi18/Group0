@@ -156,8 +156,8 @@ h2 {
 
  .animated-box{
   /* transition: opacity 0.5s ease; */
-  transition: all 1.5s ease; 
-  transform: translateY(80%);
+  transition: all 1s ease;
+  transform: translateY(10%);
  }
  /* ========= */
  .container {

@@ -96,7 +96,13 @@ export const quizData = {
         d: "Justice",
       },
       correct: "a",
-      selected: null
+      selected: null,
+      images: {
+        a: "public/images/6-a.jpg",
+        b: "public/images/6-b.jpg",
+        c: "public/images/6-c.jpg",
+        d: "public/images/6-d.jpg",
+      }
     },
     {
       text: "I have keys but no locks, and space but no room. You can enter, but you can't go inside. What am I?",
@@ -107,7 +113,13 @@ export const quizData = {
         d: "A Safe",
       },
       correct: "c",
-      selected: null
+      selected: null,
+      images: {
+        a: "public/images/7-a.jpg",
+        b: "public/images/7-b.jpg",
+        c: "public/images/7-c.jpg",
+        d: "public/images/7-d.jpg",
+      }
     },
     {
       text: "I'm a part of the bird that's not in the sky. What am I?",
@@ -118,7 +130,13 @@ export const quizData = {
         d: "A Nest",
       },
       correct: "c",
-      selected: null
+      selected: null,
+      images: {
+        a: "public/images/8-a.jpg",
+        b: "public/images/8-b.jpg",
+        c: "public/images/8-c.jpg",
+        d: "public/images/8-d.jpg",
+      }
     },
     {
       text: "I'm something that can run but never walks. I can flow, but I'm not a liquid. I have banks, but I'm not a financial institution. What am I?",
@@ -129,7 +147,13 @@ export const quizData = {
         d: "A Marathon Runner",
       },
       correct: "a",
-      selected: null
+      selected: null,
+      images: {
+        a: "public/images/9-a.jpg",
+        b: "public/images/9-b.jpg",
+        c: "public/images/9-c.jpg",
+        d: "public/images/9-d.jpg",
+      }
     },
     {
       text: "I am a question that cannot be answered 'yes' or 'no.' What am I?",
@@ -140,7 +164,13 @@ export const quizData = {
         d: "A Paradox",
       },
       correct: "d",
-      selected: null
+      selected: null,
+      images: {
+        a: "public/images/10-a.jpg",
+        b: "public/images/10-b.jpg",
+        c: "public/images/10-c.jpg",
+        d: "public/images/10-d.jpg",
+      }
     },
   ],
 };
