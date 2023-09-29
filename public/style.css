@@ -78,7 +78,7 @@ h2 {
 
 .answer-box {
   border: 1px solid var(--my-buttonColor);
-  padding: 50% 5px;
+  padding: 10px;
   flex: 1;
   width: 250px;
   height: 300px;
@@ -96,31 +96,31 @@ h2 {
   color: white;
 }
 
+.answer-img {
+  width: 100%;
+  height: 90%;
+  background-color: aqua;
+}
+
+.answer-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.answer-option {
+  box-sizing: border-box;
+  width: 100%;
+  height: 10%;
+  margin-top: 5px;
+}
+
 .answer-option p {
   margin: 0;
 }
 
 #next-question-button {
   margin-top: 10px;
-}
-
-button {
-  font-family: 'Poppins', sans-serif;
-  width: 200px;
-  font-size: 16px;
-  background-color: var(--my-buttonColor);
-  color: #fff;
-  border:  1px solid var(--my-buttonColor);
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color:white;
-  border:  1px solid var(--my-buttonColor);
-  color: var(--my-buttonColor);
 }
 
 #skip-question-button[disabled] {
@@ -130,7 +130,7 @@ button:hover {
   cursor: not-allowed;
 }
 
-/* ---------------- score View ---------------- */
+/* ---------------- Score View ---------------- */
 .score-element{
   position: fixed; 
   top: -170px; 
@@ -151,11 +151,11 @@ button:hover {
   height: 30px;
   width: 30px;
 }
-/* ==========
-*/
- .animated-box{
 
+/* ---------------- Transition Animation ---------------- */
+
+ .animated-box{
   /* transition: opacity 0.5s ease; */
-  transition: all 1.5s ease; 
-  transform: translateY(80%);
+  transition: all 1s ease; 
+  transform: translateY(10%);
  }

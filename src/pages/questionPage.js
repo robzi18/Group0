@@ -34,7 +34,7 @@ export const initQuestionPage = () => {
       questionElement.style.opacity = "1"; // FADE IN THE ALL THE BOX
       questionElement.style.transform= "translateY(0%)";
 
-    }, 800);
+    }, 150);
 
   userInterface.appendChild(questionElement);
 
@@ -46,7 +46,8 @@ export const initQuestionPage = () => {
 
   //For each answer option of the Current Question
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-    const answerElement = createAnswerElement(key, answerText);
+    const imageSrc = currentQuestion.images[key];
+    const answerElement = createAnswerElement(key, answerText, imageSrc);
 
     // Add a click event listener to each answer element
     answerElement.addEventListener('click', () => {
