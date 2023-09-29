@@ -73,6 +73,7 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 20px;
+
 }
 
 .answer-box {
@@ -150,3 +151,11 @@ button:hover {
   height: 30px;
   width: 30px;
 }
+/* ==========
+*/
+ .animated-box{
+
+  /* transition: opacity 0.5s ease; */
+  transition: all 1.5s ease; 
+  transform: translateY(80%);
+ }
