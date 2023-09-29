@@ -3,11 +3,14 @@ import {
   NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
+  GO_AGAIN_BUTTON_ID
 } from '../constants.js';
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScoreElement } from '../views/scoreView.js';
+import { createtotalScoreView } from '../views/totalScoreView.js';
+import { loadApp } from '../app.js';
 
 // Variable to store the user score
 let userScore = 0;
@@ -16,18 +19,23 @@ let userScore = 0;
 let answerSelected = false;
 
 export const initQuestionPage = () => {
+
   answerSelected = false;
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
   
 
-  // Append current question element
-  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
-  const questionElement = createQuestionElement(currentQuestion);
+  // Append current question element
+    const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+    const questionElement = createQuestionElement(currentQuestion);
+    userInterface.appendChild(questionElement);
   
-  // HERE 
+  
+ 
+
+  // HERE FANCY TRANSITION
     questionElement.classList.add("animated-box")
     questionElement.style.opacity = "0"; // FADE OUT THE ALL THE BOX
     setTimeout(() => {
@@ -36,7 +44,6 @@ export const initQuestionPage = () => {
 
     }, 150);
 
-  userInterface.appendChild(questionElement);
 
   // Create scoreElement with the initial score 0 and append it
   const scoreElement = createScoreElement(userScore);
@@ -135,13 +142,34 @@ const disableAnswerOptions = () => {
     element.style.pointerEvents = 'none';
   });
 };
+
+//TOTAL SCORE PAGE
+const totalScorePage = ()=>{
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  userInterface.innerHTML = '';
+  const totalQuestions = quizData.questions
+  const totalScore = createtotalScoreView(userScore,totalQuestions.length)
+  userInterface.appendChild(totalScore)
+  const takeQuizAgain = document.getElementById( GO_AGAIN_BUTTON_ID)
+  takeQuizAgain.addEventListener("click",()=>{
+    loadApp()
+  })
+
+} 
   
 // Go to next question
 const nextQuestion = () => {
-  // its here i have to right the code
 
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+  // CHECK WHICH QUESTION NUMBER IS
+  if(quizData.currentQuestionIndex !== 9){
+  
   initQuestionPage();
+}else{
+  // IF USER REACHES FINAL QUESTION GO TO TOTALSCORE PAGE
+  totalScorePage()
+}
+  
 };
 
 document.addEventListener('DOMContentLoaded', () => {
