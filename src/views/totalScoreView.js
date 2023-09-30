@@ -6,7 +6,7 @@ import { START_QUIZ_BUTTON_ID,GO_AGAIN_BUTTON_ID } from '../constants.js';
  * @returns {Element}
  */
 
-export const createtotalScoreView = (userScore,totalQuestions)=>{
+export const createTotalScoreView = (userScore,totalQuestions)=>{
     
     const element = document.createElement("div");
     element.innerHTML = String.raw`

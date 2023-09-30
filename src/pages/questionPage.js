@@ -9,18 +9,16 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createScoreElement } from '../views/scoreView.js';
-import { createtotalScoreView } from '../views/totalScoreView.js';
+import { createTotalScoreView } from '../views/totalScoreView.js';
 import { loadApp } from '../app.js';
 
 // Variable to store the user score
 let userScore = 0;
 
-// Variable to track whether an answer has been selected
-let answerSelected = false;
 
 export const initQuestionPage = () => {
-
-  answerSelected = false;
+// Variable to track whether an answer has been selected
+  let answerSelected = false;
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -148,7 +146,7 @@ const totalScorePage = ()=>{
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
   const totalQuestions = quizData.questions
-  const totalScore = createtotalScoreView(userScore,totalQuestions.length)
+  const totalScore = createTotalScoreView(userScore,totalQuestions.length)
   userInterface.appendChild(totalScore)
   const takeQuizAgain = document.getElementById( GO_AGAIN_BUTTON_ID)
   takeQuizAgain.addEventListener("click",()=>{
@@ -166,7 +164,7 @@ const nextQuestion = () => {
   
   initQuestionPage();
 }else{
-  // IF USER REACHES FINAL QUESTION GO TO TOTALSCORE PAGE
+  // IF USER REACHES FINAL QUESTION GO TO TOTAL SCORE PAGE
   totalScorePage()
 }
   
