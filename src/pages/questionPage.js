@@ -56,6 +56,7 @@ export const initQuestionPage = () => {
 
     // Add a click event listener to each answer element
     answerElement.addEventListener('click', () => {
+      
       if (!answerSelected) {
         // Mark that an answer has been selected
         answerSelected = true;
@@ -86,12 +87,18 @@ export const initQuestionPage = () => {
   // Next Question Button
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
+    .addEventListener('click',()=>{
+        nextQuestion();
+        createAudio('../assets/click.wav').play();
+    } );
 
   // Skip Question Button
   document
     .getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', skipQuestion);
+    .addEventListener('click',()=>{
+      skipQuestion();
+      createAudio('../assets/click.wav').play();
+    } );
 };
 
 // Updating the score depends on the user answers
@@ -102,6 +109,19 @@ const updateScore = () => {
   if( correctAnswer === selectedAnswer){
       userScore++;
   }
+  
+  
+  else {
+    // User's answer is incorrect, add "shake" class to the question element
+    const questionElement = document.querySelector('.animated-box'); // Change this to the appropriate selector
+    questionElement.classList.add('shake');
+
+    // Remove the "shake" class after the animation completes
+    setTimeout(() => {
+        questionElement.classList.remove('shake');
+    }, 500); // Adjust the timeout to match the animation duration
+}
+
     const scoreElement = document.getElementById('score');
     scoreElement.innerHTML =`${userScore} point${userScore === 1 ? '' : 's'} `;
 }
@@ -115,10 +135,12 @@ const getCorrectAnswer = ()=> {
   const CorrectAnswerBox = document.getElementById(`answer-box-${correctAnswer}`);
   if( correctAnswer === selectedAnswer){
     selectedAnswerBox.style.backgroundColor = '#9ACD32';
+    createAudio('../assets/correct.wav').play();
   }
   else {
     selectedAnswerBox.style.backgroundColor = '	#DC143C';
     CorrectAnswerBox.style.background = '#9ACD32';
+    createAudio('../assets/wrong.wav').play();
   }
 }
   
@@ -154,6 +176,14 @@ const totalScorePage = ()=>{
   })
 
 } 
+// Audio effect
+export const createAudio = (source) => {
+const audio = document.createElement('audio');
+audio.src = source;
+document.body.appendChild(audio);
+return audio;
+}
+
   
 // Go to next question
 const nextQuestion = () => {
