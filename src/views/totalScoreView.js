@@ -12,7 +12,7 @@ export const createTotalScoreView = (userScore,totalQuestions)=>{
     element.innerHTML = String.raw`
     <div class="container">
       <div class="column">
-        <h1>Congratulations</h1>
+        <h1>${userScore > totalQuestions/2 ? "Congratulations!" : "oh sorry!"}</h1>
         <h1>
         Your score is
         </h1>
