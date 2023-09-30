@@ -113,7 +113,7 @@ const updateScore = () => {
   
   else {
     // User's answer is incorrect, add "shake" class to the question element
-    const questionElement = document.querySelector('.animated-box'); // Change this to the appropriate selector
+    const questionElement = document.querySelector('.animated-box'); 
     questionElement.classList.add('shake');
 
     // Remove the "shake" class after the animation completes
@@ -167,12 +167,12 @@ const disableAnswerOptions = () => {
 const totalScorePage = ()=>{
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
-  const totalQuestions = quizData.questions
-  const totalScore = createTotalScoreView(userScore,totalQuestions.length)
-  userInterface.appendChild(totalScore)
-  const takeQuizAgain = document.getElementById( GO_AGAIN_BUTTON_ID)
+  const totalQuestions = quizData.questions;
+  const totalScore = createTotalScoreView(userScore,totalQuestions.length);
+  userInterface.appendChild(totalScore);
+  const takeQuizAgain = document.getElementById( GO_AGAIN_BUTTON_ID);
   takeQuizAgain.addEventListener("click",()=>{
-    loadApp()
+    loadApp();
   })
 
 } 
