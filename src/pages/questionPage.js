@@ -17,6 +17,10 @@ let userScore = 0;
 
 
 export const initQuestionPage = () => {
+  if (quizData.currentQuestionIndex === 0) {
+    userScore = 0;
+  }
+
 // Variable to track whether an answer has been selected
   let answerSelected = false;
 
